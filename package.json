@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "name": "wahkiakum-jail-roster",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "scrape": "node scrape.js",
+    "dry-run": "bash scripts/dry-run.sh",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0"
+  }
+}
