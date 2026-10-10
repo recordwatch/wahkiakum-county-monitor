@@ -1,0 +1,234 @@
+{
+  "generatedAt": "2026-10-10T13:37:10-07:00",
+  "trackingSince": "2026-10-10T13:10:45-07:00",
+  "bookingDateRange": {
+    "from": "2025-07-28",
+    "to": "2026-08-23"
+  },
+  "bookingCounts": {
+    "total": 4,
+    "inCustody": 4,
+    "released": 0,
+    "launchCohort": 4
+  },
+  "gender": {
+    "n": 4,
+    "rows": [
+      {
+        "label": "Male",
+        "count": 4,
+        "pct": 100
+      }
+    ]
+  },
+  "race": {
+    "n": 4,
+    "rows": [
+      {
+        "label": "White",
+        "count": 3,
+        "pct": 75
+      },
+      {
+        "label": "Black",
+        "count": 1,
+        "pct": 25
+      }
+    ]
+  },
+  "age": {
+    "n": 4,
+    "note": "Age as shown on the county detail page the last time we read it.",
+    "median": 34.5,
+    "mean": 34.8,
+    "histogram": [
+      {
+        "label": "18–25",
+        "count": 0
+      },
+      {
+        "label": "26–35",
+        "count": 2
+      },
+      {
+        "label": "36–45",
+        "count": 2
+      },
+      {
+        "label": "46–55",
+        "count": 0
+      },
+      {
+        "label": "56–65",
+        "count": 0
+      },
+      {
+        "label": "65+",
+        "count": 0
+      }
+    ]
+  },
+  "topCharges": {
+    "n": 4,
+    "unit": "bookings",
+    "rows": [
+      {
+        "label": "Assault",
+        "count": 2
+      },
+      {
+        "label": "Homicide",
+        "count": 2
+      },
+      {
+        "label": "DUI",
+        "count": 1
+      },
+      {
+        "label": "Drug Offense",
+        "count": 1
+      },
+      {
+        "label": "Weapons",
+        "count": 1
+      },
+      {
+        "label": "Resisting Arrest",
+        "count": 1
+      }
+    ]
+  },
+  "crimeTypes": {
+    "n": 4,
+    "unit": "bookings",
+    "rows": [
+      {
+        "label": "Violent",
+        "count": 3
+      },
+      {
+        "label": "Traffic / DUI",
+        "count": 1
+      },
+      {
+        "label": "Drug",
+        "count": 1
+      },
+      {
+        "label": "Weapons",
+        "count": 1
+      },
+      {
+        "label": "Other",
+        "count": 1
+      }
+    ]
+  },
+  "chargeLevels": {
+    "n": 12,
+    "rows": [
+      {
+        "label": "A",
+        "count": 5,
+        "pct": 41.7
+      },
+      {
+        "label": "B",
+        "count": 3,
+        "pct": 25
+      },
+      {
+        "label": "U",
+        "count": 2,
+        "pct": 16.7
+      },
+      {
+        "label": "F",
+        "count": 1,
+        "pct": 8.3
+      },
+      {
+        "label": "M",
+        "count": 1,
+        "pct": 8.3
+      }
+    ],
+    "unit": "charges",
+    "note": "County-published Level code, per charge."
+  },
+  "agencies": {
+    "n": 4,
+    "unit": "bookings",
+    "rows": [
+      {
+        "label": "WCSO",
+        "count": 3
+      },
+      {
+        "label": "COWLITZ COUNTY SHERIFF'S OFFICE",
+        "count": 1
+      },
+      {
+        "label": "DOC",
+        "count": 1
+      }
+    ],
+    "note": "Arresting agency as published per charge; each booking counted once per agency."
+  },
+  "bail": {
+    "n": 4,
+    "withBailSet": 3,
+    "noBailAmount": 1,
+    "median": 250000,
+    "min": 200000,
+    "max": 500000,
+    "note": "Bail set by the court, not bail posted. Per booking: the highest amount set on any one charge. $0.00 is ambiguous (no bail, held without bail, or not yet set)."
+  },
+  "stay": {
+    "n": 0,
+    "releasedTotal": 0,
+    "approximate": true,
+    "medianDays": null,
+    "meanDays": null,
+    "histogram": [
+      {
+        "label": "< 1 day",
+        "count": 0
+      },
+      {
+        "label": "1–2 days",
+        "count": 0
+      },
+      {
+        "label": "2–3 days",
+        "count": 0
+      },
+      {
+        "label": "3–7 days",
+        "count": 0
+      },
+      {
+        "label": "7–30 days",
+        "count": 0
+      },
+      {
+        "label": "30+ days",
+        "count": 0
+      }
+    ],
+    "caveats": [
+      "Release times are detected (when we noticed someone was gone), not published by the county.",
+      "The county booking date has no time, so stays are counted from midnight of the booking day and can be overstated by up to a day.",
+      "Only people who have left are counted. Current long holds are not included."
+    ]
+  },
+  "bookingsByMonth": {
+    "since": "2026-10-10",
+    "rows": []
+  },
+  "repeatBookings": {
+    "people": 4,
+    "withMoreThanOneBooking": 0,
+    "note": "Matched on the county Inmate ID. Only bookings seen since tracking began."
+  }
+}
