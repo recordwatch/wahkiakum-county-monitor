@@ -1,0 +1,61 @@
+name: Scrape Wahkiakum Roster
+
+# Triggered every 30 minutes by cron-job.org via workflow_dispatch.
+# No GitHub `schedule:` on purpose: GitHub ran only 11–13% of scheduled runs
+# at Whatcom, and having both would double up runs.
+on:
+  workflow_dispatch:
+    inputs:
+      allow_fresh_start:
+        description: 'FIRST RUN ONLY: allow starting with no data files'
+        type: boolean
+        default: false
+      confirm_zero:
+        description: 'Accept an empty roster now instead of waiting for a second empty run'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+# One writer to data/ at a time. Queued runs wait instead of overlapping.
+concurrency:
+  group: scrape-data
+  cancel-in-progress: false
+
+env:
+  TZ: America/Los_Angeles
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # ref: main, so a run that sat in the queue still starts from the
+      # latest data, not the commit that triggered it.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 50
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Exit 0 = ok. Exit 2 = data written but needs a look (job goes red,
+      # data is still committed below). Exit 1 = nothing written.
+      - name: Run scraper
+        run: node scrape.js
+        env:
+          ALLOW_FRESH_START: ${{ inputs.allow_fresh_start && '1' || '' }}
+          CONFIRM_ZERO: ${{ inputs.confirm_zero && '1' || '' }}
+
+      # Runs even if the scraper step failed, so a red run never throws
+      # away scraped data. Nothing after the scraper can block this commit.
+      - name: Commit data
+        if: ${{ !cancelled() }}
+        run: bash scripts/commit-data.sh
