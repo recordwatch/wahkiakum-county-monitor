@@ -23,12 +23,13 @@ need `jailviewer.co.wahkiakum.wa.us` allowed; `co.wahkiakum.wa.us` is blocked
 by the current network policy. Never mark a check done that couldn't run.
 
 ## Pending verification
-- [ ] **First real workflow run** (Actions → Run workflow → tick `allow_fresh_start`, once):
-      green, log line "county says Total Candidates: N; parsed N", 4-ish bookings,
-      all `detailStatus: ok`, a "data: scrape" commit on main.
-- [ ] **cron-job.org trigger**: test run returns 204 AND a workflow_dispatch run
-      actually starts on GitHub. Then check `data/status.json` commit times over
-      the first day: about 48 commits, no gaps over an hour.
+- [x] **First real workflow run** — done 2026-10-10, run #1: green, "county says
+      Total Candidates: 4; parsed 4", 4 bookings all `detailStatus: ok`, 0 warnings,
+      data commit `d33cefc`.
+- [x] **cron-job.org trigger** — done 2026-10-10: test returned 204 and started run #2
+      (green, `runs: 2`, no duplicate records, `firstSeen` unchanged).
+- [ ] **Run frequency, first day**: `data/status.json` commit times should show about
+      48 commits/day with no gaps over an hour. Check after 2026-10-11.
 - [ ] **First real release**: record shows `releaseSource: detected`,
       `lastSeenInCustodyAt` = previous run, `releasedAt` = first run they were missing.
 - [ ] **Paging**: never seen. Roster has always fit on one page and `page=2`
@@ -133,7 +134,7 @@ JSON can't be noindexed on Pages. Going private later can't recall clones.
 | Notifications | On failure |
 
 Token: fine-grained, Actions read/write, add this repo to the existing county
-token. Token expiry: **TBD — record it here and on a calendar.** Renaming the
+token. Token expiry: **2027-08-11** (also put it on a calendar; every county trigger on this token stops then). Renaming the
 workflow file breaks the URL.
 
 ## Not built yet
