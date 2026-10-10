@@ -30,6 +30,11 @@ by the current network policy. Never mark a check done that couldn't run.
       (green, `runs: 2`, no duplicate records, `firstSeen` unchanged).
 - [ ] **Run frequency, first day**: `data/status.json` commit times should show about
       48 commits/day with no gaps over an hour. Check after 2026-10-11.
+- [ ] **Site on an iPhone (Safari)**: dates and "about N days" show correctly, no
+      "Invalid Date", font loads. WebKit isn't available in the cloud session.
+- [ ] **First deploy**: after Pages source is set to GitHub Actions, the `deploy`
+      job is green and the site loads at https://recordwatch.github.io/wahkiakum-county-monitor/
+      with `noindex` in view-source.
 - [ ] **First real release**: record shows `releaseSource: detected`,
       `lastSeenInCustodyAt` = previous run, `releasedAt` = first run they were missing.
 - [ ] **Paging**: never seen. Roster has always fit on one page and `page=2`
@@ -137,6 +142,31 @@ Token: fine-grained, Actions read/write, add this repo to the existing county
 token. Token expiry: **2027-08-11** (also put it on a calendar; every county trigger on this token stops then). Renaming the
 workflow file breaks the URL.
 
+## Site (`frontend/`, GitHub Pages)
+- React + Vite, HashRouter, `base: './'`. Pages: In Custody, Released, History,
+  Stats, About. Built from Kitsap's layout and styles.
+- `<meta name="robots" content="noindex, noarchive">` is the first tag in `<head>`.
+  The GA tag (not added yet) goes inside `<head>`, *below* it.
+- Deployed by the `deploy` job in `scrape.yml`: runs after the data commit
+  (`needs: scrape`, `if: !cancelled()`), concurrency group `pages-deploy`,
+  official `upload-pages-artifact` + `deploy-pages`. A broken build fails only
+  this job. Requires **Settings → Pages → Source: GitHub Actions**.
+- The site does NOT serve `change_log.json`. `scripts/build-site-data.js` writes
+  `roster.json` = everyone in custody + releases from the last 90 days, with only
+  displayed fields. Inmate ID, court case #, warrant #, case #, OBTS and DOB are
+  not served (court fields held back until the GR 31 decision). The full history
+  is still in the public repo.
+- Display rules: county dates are shown without a Date object (a date-only
+  string through `new Date()` shows the previous day in Pacific — Kitsap bug).
+  Durations count from the county booking date and always say "about".
+  Releases show "between <last seen> and <first missing> (detected)". Stale
+  in-custody records get a note on the card (`missingSince`, detail failed or
+  disagrees). No invented release reasons or clearance-code labels.
+- Stats page: counts only from `stats.json`, n on every card, as-of and date
+  range in the header, small-jail caveat, stay caveats from the data.
+- Tested: `test/site.test.js` (date helpers, DST, windowing/trimming) and a
+  Playwright pass in Chromium at 1200px and 390px (no console errors, no
+  horizontal overflow). **Not tested in Safari** (no WebKit in the cloud box).
+
 ## Not built yet
-Pages deploy job and frontend (noindex from day one), GA tag (after the site
-is up; must go inside `<head>`, after the noindex meta).
+GA tag (after the site is up; inside `<head>`, below the robots meta).
