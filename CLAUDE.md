@@ -23,8 +23,12 @@ need `jailviewer.co.wahkiakum.wa.us` allowed; `co.wahkiakum.wa.us` is blocked
 by the current network policy. Never mark a check done that couldn't run.
 
 ## Pending verification
-- [ ] **First real workflow run** (needs `ALLOW_FRESH_START=1` once): green, log line
-      "county says Total Candidates: N; parsed N", 4-ish bookings, all `detailStatus: ok`.
+- [ ] **First real workflow run** (Actions → Run workflow → tick `allow_fresh_start`, once):
+      green, log line "county says Total Candidates: N; parsed N", 4-ish bookings,
+      all `detailStatus: ok`, a "data: scrape" commit on main.
+- [ ] **cron-job.org trigger**: test run returns 204 AND a workflow_dispatch run
+      actually starts on GitHub. Then check `data/status.json` commit times over
+      the first day: about 48 commits, no gaps over an hour.
 - [ ] **First real release**: record shows `releaseSource: detected`,
       `lastSeenInCustodyAt` = previous run, `releasedAt` = first run they were missing.
 - [ ] **Paging**: never seen. Roster has always fit on one page and `page=2`
@@ -107,6 +111,31 @@ Public repo + GitHub Pages, chosen 2026-10-09 ("public for now"). This means
 `change_log.json` and its full git history are public, including names, and
 JSON can't be noindexed on Pages. Going private later can't recall clones.
 
+## Workflow (`.github/workflows/scrape.yml`)
+- workflow_dispatch only, triggered by cron-job.org every 30 min (:07 and :37).
+  No GitHub `schedule:` — it ran 11–13% of scheduled runs at Whatcom.
+- Concurrency group `scrape-data`, checkout `ref: main`, `TZ: America/Los_Angeles`.
+- Scraper, then `scripts/commit-data.sh` with `if: !cancelled()`, so a red run
+  (exit 2) still commits its data. Nothing runs between the two.
+- Push retry: rebase onto latest main, up to 3 times. Never `-X ours`; a data
+  conflict fails loudly (tested). So never push data edits by hand while the
+  cron is live — do backfills as an idempotent migration inside the scraper.
+- Inputs: `allow_fresh_start` (first run only), `confirm_zero`.
+
+### cron-job.org job
+| Field | Value |
+|---|---|
+| URL | `https://api.github.com/repos/recordwatch/wahkiakum-county-monitor/actions/workflows/scrape.yml/dispatches` |
+| Method | POST |
+| Headers | `Authorization: Bearer <token>`, `Accept: application/vnd.github+json`, `X-GitHub-Api-Version: 2022-11-28`, `Content-Type: application/json` |
+| Body | `{"ref":"main"}` |
+| Schedule | `7,37 * * * *`, timezone America/Los_Angeles |
+| Notifications | On failure |
+
+Token: fine-grained, Actions read/write, add this repo to the existing county
+token. Token expiry: **TBD — record it here and on a calendar.** Renaming the
+workflow file breaks the URL.
+
 ## Not built yet
-Workflow (`.github/workflows/scrape.yml`), frontend, cron-job.org job, GA tag
-(after the site is up; must go inside `<head>`, after the noindex meta).
+Pages deploy job and frontend (noindex from day one), GA tag (after the site
+is up; must go inside `<head>`, after the noindex meta).
