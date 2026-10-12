@@ -7,7 +7,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-10-12T08:07:11-07:00",
+    "lastSeenInCustodyAt": "2026-10-12T08:37:27-07:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -69,7 +69,7 @@
     "eyes": "BRO",
     "height": "505",
     "weight": 125,
-    "detailFetchedAt": "2026-10-12T08:07:11-07:00"
+    "detailFetchedAt": "2026-10-12T08:37:27-07:00"
   },
   {
     "bookingNumber": "B2600066",
@@ -79,7 +79,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-10-12T08:07:11-07:00",
+    "lastSeenInCustodyAt": "2026-10-12T08:37:27-07:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -141,7 +141,7 @@
     "eyes": "BRO",
     "height": "509",
     "weight": 155,
-    "detailFetchedAt": "2026-10-12T08:07:11-07:00"
+    "detailFetchedAt": "2026-10-12T08:37:27-07:00"
   },
   {
     "bookingNumber": "B2600036",
@@ -151,7 +151,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-10-12T08:07:11-07:00",
+    "lastSeenInCustodyAt": "2026-10-12T08:37:27-07:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -318,7 +318,7 @@
     "eyes": "BRO",
     "height": "603",
     "weight": 210,
-    "detailFetchedAt": "2026-10-12T08:07:11-07:00"
+    "detailFetchedAt": "2026-10-12T08:37:27-07:00"
   },
   {
     "bookingNumber": "B2500087",
@@ -328,7 +328,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-10-12T08:07:11-07:00",
+    "lastSeenInCustodyAt": "2026-10-12T08:37:27-07:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -369,6 +369,6 @@
     "eyes": "HAZ",
     "height": "600",
     "weight": 190,
-    "detailFetchedAt": "2026-10-12T08:07:11-07:00"
+    "detailFetchedAt": "2026-10-12T08:37:27-07:00"
   }
 ]
