@@ -1,50 +1,50 @@
 {
-  "generatedAt": "2026-10-13T19:37:12-07:00",
+  "generatedAt": "2026-10-13T20:07:12-07:00",
   "trackingSince": "2026-10-10T13:10:45-07:00",
   "bookingDateRange": {
     "from": "2025-07-28",
-    "to": "2026-08-23"
+    "to": "2026-10-13"
   },
   "bookingCounts": {
-    "total": 4,
-    "inCustody": 4,
+    "total": 5,
+    "inCustody": 5,
     "released": 0,
     "launchCohort": 4
   },
   "gender": {
-    "n": 4,
+    "n": 5,
     "rows": [
       {
         "label": "Male",
-        "count": 4,
+        "count": 5,
         "pct": 100
       }
     ]
   },
   "race": {
-    "n": 4,
+    "n": 5,
     "rows": [
       {
         "label": "White",
-        "count": 3,
-        "pct": 75
+        "count": 4,
+        "pct": 80
       },
       {
         "label": "Black",
         "count": 1,
-        "pct": 25
+        "pct": 20
       }
     ]
   },
   "age": {
-    "n": 4,
+    "n": 5,
     "note": "Age as shown on the county detail page the last time we read it.",
-    "median": 34.5,
-    "mean": 34.8,
+    "median": 32,
+    "mean": 32.8,
     "histogram": [
       {
         "label": "18–25",
-        "count": 0
+        "count": 1
       },
       {
         "label": "26–35",
@@ -69,7 +69,7 @@
     ]
   },
   "topCharges": {
-    "n": 4,
+    "n": 5,
     "unit": "bookings",
     "rows": [
       {
@@ -79,6 +79,10 @@
       {
         "label": "Homicide",
         "count": 2
+      },
+      {
+        "label": "Other",
+        "count": 1
       },
       {
         "label": "DUI",
@@ -99,12 +103,16 @@
     ]
   },
   "crimeTypes": {
-    "n": 4,
+    "n": 5,
     "unit": "bookings",
     "rows": [
       {
         "label": "Violent",
         "count": 3
+      },
+      {
+        "label": "Other",
+        "count": 2
       },
       {
         "label": "Traffic / DUI",
@@ -117,52 +125,53 @@
       {
         "label": "Weapons",
         "count": 1
-      },
-      {
-        "label": "Other",
-        "count": 1
       }
     ]
   },
   "chargeLevels": {
-    "n": 12,
+    "n": 13,
     "rows": [
       {
         "label": "A",
         "count": 5,
-        "pct": 41.7
+        "pct": 38.5
       },
       {
         "label": "B",
         "count": 3,
-        "pct": 25
+        "pct": 23.1
       },
       {
         "label": "U",
         "count": 2,
-        "pct": 16.7
+        "pct": 15.4
+      },
+      {
+        "label": "Unknown",
+        "count": 1,
+        "pct": 7.7
       },
       {
         "label": "F",
         "count": 1,
-        "pct": 8.3
+        "pct": 7.7
       },
       {
         "label": "M",
         "count": 1,
-        "pct": 8.3
+        "pct": 7.7
       }
     ],
     "unit": "charges",
     "note": "County-published Level code, per charge."
   },
   "agencies": {
-    "n": 4,
+    "n": 5,
     "unit": "bookings",
     "rows": [
       {
         "label": "WCSO",
-        "count": 3
+        "count": 4
       },
       {
         "label": "COWLITZ COUNTY SHERIFF'S OFFICE",
@@ -176,9 +185,9 @@
     "note": "Arresting agency as published per charge; each booking counted once per agency."
   },
   "bail": {
-    "n": 4,
+    "n": 5,
     "withBailSet": 3,
-    "noBailAmount": 1,
+    "noBailAmount": 2,
     "median": 250000,
     "min": 200000,
     "max": 500000,
@@ -224,10 +233,15 @@
   },
   "bookingsByMonth": {
     "since": "2026-10-10",
-    "rows": []
+    "rows": [
+      {
+        "month": "2026-10",
+        "count": 1
+      }
+    ]
   },
   "repeatBookings": {
-    "people": 4,
+    "people": 5,
     "withMoreThanOneBooking": 0,
     "note": "Matched on the county Inmate ID. Only bookings seen since tracking began."
   }
