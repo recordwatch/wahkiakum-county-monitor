@@ -1,5 +1,77 @@
 [
   {
+    "bookingNumber": "B2600075",
+    "inmateId": "A04004",
+    "firstSeen": "2026-10-24T19:37:17-07:00",
+    "seenOnFirstRun": false,
+    "status": "in_custody",
+    "releasedAt": null,
+    "releaseSource": null,
+    "lastSeenInCustodyAt": "2026-10-24T19:37:17-07:00",
+    "releaseReversals": [],
+    "charges": [
+      {
+        "violation": "46.20.740(2) - IGNITION INTERLOCKS VIOLATION",
+        "cleared": false,
+        "level": "M",
+        "addDesc": null,
+        "obts": null,
+        "warrantNumber": null,
+        "endOfSentence": null,
+        "clearance": null,
+        "arrestAgency": "WCSO",
+        "caseNumber": "260181",
+        "arrestDate": "2026-10-24",
+        "courtType": null,
+        "courtCase": null,
+        "nextCourtDate": null,
+        "bondBailType": null,
+        "bondGroup": "0",
+        "bondAmount": 0,
+        "cashAmount": 0,
+        "bondCo": null
+      },
+      {
+        "violation": "46.20.342(1)(C) - DRIVE W/LICENSE SUSP OR REVOKED-3",
+        "cleared": false,
+        "level": "M",
+        "addDesc": null,
+        "obts": null,
+        "warrantNumber": null,
+        "endOfSentence": null,
+        "clearance": null,
+        "arrestAgency": "WCSO",
+        "caseNumber": "260181",
+        "arrestDate": "2026-10-24",
+        "courtType": null,
+        "courtCase": null,
+        "nextCourtDate": null,
+        "bondBailType": null,
+        "bondGroup": "0",
+        "bondAmount": 0,
+        "cashAmount": 0,
+        "bondCo": null
+      }
+    ],
+    "detailStatus": "ok",
+    "name": "GILMORE, SEAN F",
+    "firstName": "SEAN",
+    "lastName": "GILMORE",
+    "middleName": "F",
+    "race": "W",
+    "sex": "M",
+    "bookingDate": "2026-10-24",
+    "schedRelease": null,
+    "location": null,
+    "countyReleased": null,
+    "age": 37,
+    "hair": "BLN",
+    "eyes": null,
+    "height": "507",
+    "weight": 198,
+    "detailFetchedAt": "2026-10-24T19:37:17-07:00"
+  },
+  {
     "bookingNumber": "B2600074",
     "inmateId": "A0000779",
     "firstSeen": "2026-10-16T17:37:12-07:00",
@@ -7,7 +79,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-10-24T18:37:11-07:00",
+    "lastSeenInCustodyAt": "2026-10-24T19:37:17-07:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -69,7 +141,7 @@
     "eyes": "GRN",
     "height": "510",
     "weight": 220,
-    "detailFetchedAt": "2026-10-24T18:37:11-07:00"
+    "detailFetchedAt": "2026-10-24T19:37:17-07:00"
   },
   {
     "bookingNumber": "B2600073",
@@ -130,7 +202,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-10-24T18:37:11-07:00",
+    "lastSeenInCustodyAt": "2026-10-24T19:37:17-07:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -192,7 +264,7 @@
     "eyes": "BRO",
     "height": "505",
     "weight": 125,
-    "detailFetchedAt": "2026-10-24T18:37:11-07:00"
+    "detailFetchedAt": "2026-10-24T19:37:17-07:00"
   },
   {
     "bookingNumber": "B2600066",
@@ -202,7 +274,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-10-24T18:37:11-07:00",
+    "lastSeenInCustodyAt": "2026-10-24T19:37:17-07:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -264,7 +336,7 @@
     "eyes": "BRO",
     "height": "509",
     "weight": 155,
-    "detailFetchedAt": "2026-10-24T18:37:11-07:00"
+    "detailFetchedAt": "2026-10-24T19:37:17-07:00"
   },
   {
     "bookingNumber": "B2600036",
@@ -274,7 +346,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-10-24T18:37:11-07:00",
+    "lastSeenInCustodyAt": "2026-10-24T19:37:17-07:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -441,7 +513,7 @@
     "eyes": "BRO",
     "height": "603",
     "weight": 210,
-    "detailFetchedAt": "2026-10-24T18:37:11-07:00"
+    "detailFetchedAt": "2026-10-24T19:37:17-07:00"
   },
   {
     "bookingNumber": "B2500087",
@@ -451,7 +523,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-10-24T18:37:11-07:00",
+    "lastSeenInCustodyAt": "2026-10-24T19:37:17-07:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -492,6 +564,6 @@
     "eyes": "HAZ",
     "height": "600",
     "weight": 190,
-    "detailFetchedAt": "2026-10-24T18:37:11-07:00"
+    "detailFetchedAt": "2026-10-24T19:37:17-07:00"
   }
 ]
