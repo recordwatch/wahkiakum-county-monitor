@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T20:37:11-07:00",
+  "generatedAt": "2026-10-24T21:07:11-07:00",
   "trackingSince": "2026-10-10T13:10:45-07:00",
   "bookingDateRange": {
     "from": "2025-07-28",
@@ -7,8 +7,8 @@
   },
   "bookingCounts": {
     "total": 7,
-    "inCustody": 6,
-    "released": 1,
+    "inCustody": 5,
+    "released": 2,
     "launchCohort": 4
   },
   "gender": {
@@ -210,15 +210,15 @@
     "note": "Bail set by the court, not bail posted. Per booking: the highest amount set on any one charge. $0.00 is ambiguous (no bail, held without bail, or not yet set)."
   },
   "stay": {
-    "n": 1,
-    "releasedTotal": 1,
+    "n": 2,
+    "releasedTotal": 2,
     "approximate": true,
-    "medianDays": 2.6,
-    "meanDays": 2.6,
+    "medianDays": 1.7,
+    "meanDays": 1.7,
     "histogram": [
       {
         "label": "< 1 day",
-        "count": 0
+        "count": 1
       },
       {
         "label": "1–2 days",
