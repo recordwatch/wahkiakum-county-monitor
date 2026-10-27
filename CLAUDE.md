@@ -28,15 +28,18 @@ by the current network policy. Never mark a check done that couldn't run.
       data commit `d33cefc`.
 - [x] **cron-job.org trigger** — done 2026-10-10: test returned 204 and started run #2
       (green, `runs: 2`, no duplicate records, `firstSeen` unchanged).
-- [ ] **Run frequency, first day**: `data/status.json` commit times should show about
-      48 commits/day with no gaps over an hour. Check after 2026-10-11.
+- [x] **Run frequency, first day** — checked 2026-10-15: 48 `data/status.json` commits
+      on 2026-10-11, longest gap since launch 30 min. Re-check now and then from the
+      same history (it's the run log).
 - [ ] **Site on an iPhone (Safari)**: dates and "about N days" show correctly, no
       "Invalid Date", font loads. WebKit isn't available in the cloud session.
-- [ ] **First deploy**: after Pages source is set to GitHub Actions, the `deploy`
-      job is green and the site loads at https://recordwatch.github.io/wahkiakum-county-monitor/
-      with `noindex` in view-source.
-- [ ] **First real release**: record shows `releaseSource: detected`,
-      `lastSeenInCustodyAt` = previous run, `releasedAt` = first run they were missing.
+- [x] **First deploy** — done 2026-10-10 (run #4): `deploy` green, site loads at
+      https://recordwatch.github.io/wahkiakum-county-monitor/ with `noindex, noarchive`;
+      `/data/roster.json` served (trimmed, no inmate ID or court numbers);
+      `/data/change_log.json`, `state.json`, `CLAUDE.md` and code files all 404.
+- [x] **First real release** — checked 2026-10-27: B2600073 (last seen 2026-10-15
+      13:37, released 14:07) and B2600075 (last seen 2026-10-24 20:37, released 21:07),
+      both `releaseSource: detected`, one run apart, no reversals.
 - [ ] **Paging**: never seen. Roster has always fit on one page and `page=2`
       returned the same rows. If the roster grows past one page the scraper
       fails loudly with "parsed X rows but county says Total Candidates: Y" —
@@ -151,6 +154,11 @@ workflow file breaks the URL.
   (`needs: scrape`, `if: !cancelled()`), concurrency group `pages-deploy`,
   official `upload-pages-artifact` + `deploy-pages`. A broken build fails only
   this job. Requires **Settings → Pages → Source: GitHub Actions**.
+- **Lesson (2026-10-10):** Pages was first set to "Deploy from a branch", which
+  served the raw repo for about 10 minutes, including the full `change_log.json`
+  and `CLAUDE.md`, while `/` returned 404. The deploy job still ran green. Set the
+  source to GitHub Actions *before* the first deploy, and after any Pages
+  settings change confirm `/data/change_log.json` returns 404.
 - The site does NOT serve `change_log.json`. `scripts/build-site-data.js` writes
   `roster.json` = everyone in custody + releases from the last 90 days, with only
   displayed fields. Inmate ID, court case #, warrant #, case #, OBTS and DOB are
@@ -168,5 +176,21 @@ workflow file breaks the URL.
   Playwright pass in Chromium at 1200px and 390px (no console errors, no
   horizontal overflow). **Not tested in Safari** (no WebKit in the cloud box).
 
-## Not built yet
-GA tag (after the site is up; inside `<head>`, below the robots meta).
+## Analytics
+GA tag `G-SH5B9DB6Y4` added 2026-10-10 (commit `6b418a6`), inside `<head>` below
+the robots meta. Keep `noindex, noarchive` as the first tag.
+
+## Repo history (read before any git surgery)
+On 2026-10-10 at 13:48 PT, `main` was re-rooted: a new first commit `37a8d46`
+("Fix repository tracking and add Google Analytics gtag") replaced the history
+of PRs #1–#4. Checked 2026-10-21: the code is identical to what PR #4 merged
+(`1f96d35`), data continued unbroken (`firstSeen` kept, `state.runs` kept
+counting). Effects:
+- The `status.json` run log in git only starts at `37a8d46`; runs #1–#4 aren't in it.
+- The old commits still exist on GitHub (PR pages, old branch tip `1f96d35`) but
+  aren't ancestors of `main`, so old branches can't be fast-forwarded. Start new
+  work from current `main` on a new branch.
+- That commit also added a stray `wahkiakum-county-monitor` gitlink (a nested
+  repo, no `.gitmodules`); removed 2026-10-27 and ignored.
+Don't rewrite `main` again: the cron pushes to it every 30 minutes, and a
+rewrite can silently drop data commits.

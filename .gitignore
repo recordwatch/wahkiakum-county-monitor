@@ -6,3 +6,6 @@ frontend/public/data/
 *.db
 *.sqlite
 *.tmp
+
+# Stray nested repo once committed as a gitlink (see CLAUDE.md, Repo history)
+/wahkiakum-county-monitor/
