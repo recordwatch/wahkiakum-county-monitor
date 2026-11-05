@@ -31,8 +31,8 @@ by the current network policy. Never mark a check done that couldn't run.
 - [x] **Run frequency, first day** — checked 2026-10-15: 48 `data/status.json` commits
       on 2026-10-11, longest gap since launch 30 min. Re-check now and then from the
       same history (it's the run log).
-- [ ] **Site on an iPhone (Safari)**: dates and "about N days" show correctly, no
-      "Invalid Date", font loads. WebKit isn't available in the cloud session.
+- [x] **Site on an iPhone (Safari)** — checked by the user 2026-11-05: looks good
+      (dates, "about N days", no "Invalid Date", font).
 - [x] **First deploy** — done 2026-10-10 (run #4): `deploy` green, site loads at
       https://recordwatch.github.io/wahkiakum-county-monitor/ with `noindex, noarchive`;
       `/data/roster.json` served (trimmed, no inmate ID or court numbers);
@@ -52,8 +52,8 @@ by the current network policy. Never mark a check done that couldn't run.
 - [ ] **Released / Release Date fields**: blank on every in-custody page and list
       row seen. If either is ever filled in, the scraper warns (exit 2) and stores
       the raw value; decide then whether it's a real county release date.
-- [ ] **chargeMap.js** (copied from Kitsap): "ATTEMPT MURDER" lands in Homicide.
-      Decide whether attempts get their own category (Kitsap too).
+- [x] **chargeMap.js** — decided 2026-11-05: "ATTEMPT MURDER" stays in Homicide.
+      No change (Kitsap's copy is unchanged too).
 
 ## Source map (verified by hand 2026-10-09)
 **Gap tolerance: low.** The list shows current inmates only. A released person's
@@ -78,8 +78,10 @@ by the gap and can miss short stays entirely.
 - **Roster size:** about 4 people. Real, per the user. 0 is possible on a quiet night.
 - **Not stored:** DOB (identifying; age from the detail page is kept instead).
 - **Terms:** none on the viewer pages fetched (search, results, detail, About).
-  The county's main site was not checked (blocked here) — check by hand. GR 31 applies to court data
-  (court case #, warrant #); decide consciously before publishing court fields.
+  The county's main site was not checked (blocked here) — check by hand.
+- **Court fields (GR 31):** decided 2026-11-05: court case #, warrant # and
+  case # stay stored in `data/` but are **not shown on the site**. Changing that
+  is a deliberate decision, not a code tidy-up.
 
 ## Guards (why each exists)
 - Data files read strictly: missing → exit 1 unless `ALLOW_FRESH_START=1`;
@@ -149,7 +151,7 @@ workflow file breaks the URL.
 - React + Vite, HashRouter, `base: './'`. Pages: In Custody, Released, History,
   Stats, About. Built from Kitsap's layout and styles.
 - `<meta name="robots" content="noindex, noarchive">` is the first tag in `<head>`.
-  The GA tag (not added yet) goes inside `<head>`, *below* it.
+  The GA tag sits inside `<head>`, *below* it (see Analytics).
 - Deployed by the `deploy` job in `scrape.yml`: runs after the data commit
   (`needs: scrape`, `if: !cancelled()`), concurrency group `pages-deploy`,
   official `upload-pages-artifact` + `deploy-pages`. A broken build fails only
@@ -162,7 +164,7 @@ workflow file breaks the URL.
 - The site does NOT serve `change_log.json`. `scripts/build-site-data.js` writes
   `roster.json` = everyone in custody + releases from the last 90 days, with only
   displayed fields. Inmate ID, court case #, warrant #, case #, OBTS and DOB are
-  not served (court fields held back until the GR 31 decision). The full history
+  not served (court fields kept hidden, decided 2026-11-05). The full history
   is still in the public repo.
 - Display rules: county dates are shown without a Date object (a date-only
   string through `new Date()` shows the previous day in Pacific — Kitsap bug).
