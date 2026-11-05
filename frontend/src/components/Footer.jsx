@@ -7,6 +7,7 @@ export default function Footer({ status }) {
       Source: Wahkiakum County public Web Jail Viewer. Independent monitor, not affiliated with the county.
       {status && <> Last checked {formatDateTime(status.lastUpdated)}.</>}
       {' '}<Link to="/about">How this works</Link>
+      {' '}· <a href="https://wajaildata.org/contact">Contact</a>
     </footer>
   )
 }
