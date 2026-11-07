@@ -179,8 +179,10 @@ workflow file breaks the URL.
   horizontal overflow). **Not tested in Safari** (no WebKit in the cloud box).
 
 ## Analytics
-GA tag `G-SH5B9DB6Y4` added 2026-10-10 (commit `6b418a6`), inside `<head>` below
-the robots meta. Keep `noindex, noarchive` as the first tag.
+GA tag `G-LD86GBGC48` (shared property for wajaildata.org and every county
+monitor, `content_group: 'wahkiakum'`) sits at the end of `<head>`. It replaced
+the per-site `G-SH5B9DB6Y4` on 2026-11-07. Keep `noindex, noarchive` as the
+first tag.
 
 ## Repo history (read before any git surgery)
 On 2026-10-10 at 13:48 PT, `main` was re-rooted: a new first commit `37a8d46`
