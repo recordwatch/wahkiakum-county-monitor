@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T03:07:21-08:00",
+  "generatedAt": "2026-11-10T03:37:15-08:00",
   "trackingSince": "2026-10-10T13:10:45-07:00",
   "bookingDateRange": {
     "from": "2025-07-28",
@@ -156,11 +156,6 @@
     "n": 20,
     "rows": [
       {
-        "label": "U",
-        "count": 5,
-        "pct": 25
-      },
-      {
         "label": "A",
         "count": 5,
         "pct": 25
@@ -171,14 +166,19 @@
         "pct": 20
       },
       {
+        "label": "U",
+        "count": 4,
+        "pct": 20
+      },
+      {
         "label": "B",
         "count": 3,
         "pct": 15
       },
       {
         "label": "G",
-        "count": 1,
-        "pct": 5
+        "count": 2,
+        "pct": 10
       },
       {
         "label": "Unknown",
