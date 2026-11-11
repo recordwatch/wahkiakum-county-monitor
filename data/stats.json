@@ -1,46 +1,46 @@
 {
-  "generatedAt": "2026-11-10T16:07:20-08:00",
+  "generatedAt": "2026-11-10T17:37:13-08:00",
   "trackingSince": "2026-10-10T13:10:45-07:00",
   "bookingDateRange": {
     "from": "2025-07-28",
     "to": "2026-11-10"
   },
   "bookingCounts": {
-    "total": 10,
-    "inCustody": 5,
+    "total": 11,
+    "inCustody": 6,
     "released": 5,
     "launchCohort": 4
   },
   "gender": {
-    "n": 10,
+    "n": 11,
     "rows": [
       {
         "label": "Male",
-        "count": 10,
+        "count": 11,
         "pct": 100
       }
     ]
   },
   "race": {
-    "n": 10,
+    "n": 11,
     "rows": [
       {
         "label": "White",
-        "count": 9,
-        "pct": 90
+        "count": 10,
+        "pct": 90.9
       },
       {
         "label": "Black",
         "count": 1,
-        "pct": 10
+        "pct": 9.1
       }
     ]
   },
   "age": {
-    "n": 10,
+    "n": 11,
     "note": "Age as shown on the county detail page the last time we read it.",
-    "median": 36.5,
-    "mean": 36.1,
+    "median": 36,
+    "mean": 35.9,
     "histogram": [
       {
         "label": "18–25",
@@ -48,7 +48,7 @@
       },
       {
         "label": "26–35",
-        "count": 2
+        "count": 3
       },
       {
         "label": "36–45",
@@ -269,12 +269,12 @@
       },
       {
         "month": "2026-11",
-        "count": 2
+        "count": 3
       }
     ]
   },
   "repeatBookings": {
-    "people": 10,
+    "people": 11,
     "withMoreThanOneBooking": 0,
     "note": "Matched on the county Inmate ID. Only bookings seen since tracking began."
   }
