@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T17:37:13-08:00",
+  "generatedAt": "2026-11-10T18:07:13-08:00",
   "trackingSince": "2026-10-10T13:10:45-07:00",
   "bookingDateRange": {
     "from": "2025-07-28",
@@ -69,7 +69,7 @@
     ]
   },
   "topCharges": {
-    "n": 10,
+    "n": 11,
     "unit": "bookings",
     "rows": [
       {
@@ -87,6 +87,10 @@
       {
         "label": "Homicide",
         "count": 2
+      },
+      {
+        "label": "Stalking",
+        "count": 1
       },
       {
         "label": "Malicious Mischief",
@@ -119,7 +123,7 @@
     ]
   },
   "crimeTypes": {
-    "n": 10,
+    "n": 11,
     "unit": "bookings",
     "rows": [
       {
@@ -133,6 +137,10 @@
       {
         "label": "Violent",
         "count": 3
+      },
+      {
+        "label": "Order Violations",
+        "count": 1
       },
       {
         "label": "Property",
@@ -153,54 +161,54 @@
     ]
   },
   "chargeLevels": {
-    "n": 20,
+    "n": 21,
     "rows": [
+      {
+        "label": "U",
+        "count": 5,
+        "pct": 23.8
+      },
       {
         "label": "A",
         "count": 5,
-        "pct": 25
+        "pct": 23.8
       },
       {
         "label": "M",
         "count": 4,
-        "pct": 20
-      },
-      {
-        "label": "U",
-        "count": 4,
-        "pct": 20
+        "pct": 19
       },
       {
         "label": "B",
         "count": 3,
-        "pct": 15
+        "pct": 14.3
       },
       {
         "label": "G",
         "count": 2,
-        "pct": 10
+        "pct": 9.5
       },
       {
         "label": "Unknown",
         "count": 1,
-        "pct": 5
+        "pct": 4.8
       },
       {
         "label": "F",
         "count": 1,
-        "pct": 5
+        "pct": 4.8
       }
     ],
     "unit": "charges",
     "note": "County-published Level code, per charge."
   },
   "agencies": {
-    "n": 10,
+    "n": 11,
     "unit": "bookings",
     "rows": [
       {
         "label": "WCSO",
-        "count": 9
+        "count": 10
       },
       {
         "label": "COWLITZ COUNTY SHERIFF'S OFFICE",
@@ -214,9 +222,9 @@
     "note": "Arresting agency as published per charge; each booking counted once per agency."
   },
   "bail": {
-    "n": 10,
+    "n": 11,
     "withBailSet": 4,
-    "noBailAmount": 6,
+    "noBailAmount": 7,
     "median": 225000,
     "min": 1000,
     "max": 500000,
