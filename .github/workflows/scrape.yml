@@ -43,30 +43,54 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
+      # A failed install or scrape doesn't end the run here. The health step
+      # below decides whether it's been broken long enough to fail (and email).
       - name: Install dependencies
+        id: install
+        continue-on-error: true
         run: npm ci
 
-      # Exit 0 = ok. Exit 2 = data written but needs a look (job goes red,
-      # data is still committed below). Exit 1 = nothing written.
+      # Exit 0 = ok. Exit 2 = data written but needs a look (counts as a
+      # failure toward the 24 hours; data is still committed below).
+      # Exit 1 = nothing written.
       - name: Run scraper
+        id: scrape
+        continue-on-error: true
+        timeout-minutes: 10
         run: node scrape.js
         env:
           ALLOW_FRESH_START: ${{ inputs.allow_fresh_start && '1' || '' }}
           CONFIRM_ZERO: ${{ inputs.confirm_zero && '1' || '' }}
 
-      # Runs even if the scraper step failed, so a red run never throws
-      # away scraped data. Nothing after the scraper can block this commit.
+      - name: Record scraper health
+        id: health
+        run: |
+          if [ "${{ steps.install.outcome }}" = success ] && [ "${{ steps.scrape.outcome }}" = success ]; then
+            bash .github/scripts/scrape-health.sh success
+          else
+            bash .github/scripts/scrape-health.sh failure
+          fi
+
+      # Runs even if the scraper step failed, so a failed run never throws
+      # away scraped data. A commit problem is a warning; the next run commits.
       - name: Commit data
         if: ${{ !cancelled() }}
+        continue-on-error: true
         run: bash scripts/commit-data.sh
+
+      - name: Fail if the scraper has been broken for 24 hours
+        if: steps.health.outputs.fail == 'true'
+        run: exit 1
 
   # Separate job, after the data commit: a broken frontend build can only
   # fail this job, never lose scraped data. Runs even when the scraper was
   # red, so the site always shows the latest committed data.
+  # Publishing problems never fail the workflow; the next run republishes.
   deploy:
     needs: scrape
     if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
+    continue-on-error: true
     timeout-minutes: 10
     permissions:
       contents: read

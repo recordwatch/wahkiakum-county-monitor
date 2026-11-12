@@ -18,6 +18,7 @@ if [ ! -d data ]; then
   exit 0
 fi
 git add data/
+[ -f .github/scrape-health.json ] && git add .github/scrape-health.json
 if git diff --cached --quiet; then
   echo "No data changes to commit."
   exit 0
