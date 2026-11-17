@@ -1,46 +1,51 @@
 {
-  "generatedAt": "2026-11-11T14:37:12-08:00",
+  "generatedAt": "2026-11-17T13:37:22-08:00",
   "trackingSince": "2026-10-10T13:10:45-07:00",
   "bookingDateRange": {
     "from": "2025-07-28",
-    "to": "2026-11-10"
+    "to": "2026-11-16"
   },
   "bookingCounts": {
-    "total": 11,
+    "total": 13,
     "inCustody": 6,
-    "released": 5,
+    "released": 7,
     "launchCohort": 4
   },
   "gender": {
-    "n": 11,
+    "n": 13,
     "rows": [
       {
         "label": "Male",
-        "count": 11,
-        "pct": 100
+        "count": 12,
+        "pct": 92.3
+      },
+      {
+        "label": "Female",
+        "count": 1,
+        "pct": 7.7
       }
     ]
   },
   "race": {
-    "n": 11,
+    "n": 13,
     "rows": [
       {
         "label": "White",
-        "count": 10,
-        "pct": 90.9
+        "count": 12,
+        "pct": 92.3
       },
       {
         "label": "Black",
         "count": 1,
-        "pct": 9.1
+        "pct": 7.7
       }
     ]
   },
   "age": {
-    "n": 11,
+    "n": 13,
     "note": "Age as shown on the county detail page the last time we read it.",
-    "median": 36,
-    "mean": 35.9,
+    "median": 37,
+    "mean": 39.2,
     "histogram": [
       {
         "label": "18–25",
@@ -56,11 +61,11 @@
       },
       {
         "label": "46–55",
-        "count": 2
+        "count": 3
       },
       {
         "label": "56–65",
-        "count": 0
+        "count": 1
       },
       {
         "label": "65+",
@@ -69,12 +74,12 @@
     ]
   },
   "topCharges": {
-    "n": 11,
+    "n": 13,
     "unit": "bookings",
     "rows": [
       {
         "label": "Other",
-        "count": 2
+        "count": 4
       },
       {
         "label": "Driving While License Suspended",
@@ -123,12 +128,12 @@
     ]
   },
   "crimeTypes": {
-    "n": 11,
+    "n": 13,
     "unit": "bookings",
     "rows": [
       {
         "label": "Other",
-        "count": 3
+        "count": 5
       },
       {
         "label": "Traffic / DUI",
@@ -161,54 +166,54 @@
     ]
   },
   "chargeLevels": {
-    "n": 21,
+    "n": 25,
     "rows": [
       {
         "label": "U",
-        "count": 5,
-        "pct": 23.8
+        "count": 6,
+        "pct": 24
       },
       {
         "label": "A",
         "count": 5,
-        "pct": 23.8
+        "pct": 20
+      },
+      {
+        "label": "Unknown",
+        "count": 4,
+        "pct": 16
       },
       {
         "label": "M",
         "count": 4,
-        "pct": 19
+        "pct": 16
       },
       {
         "label": "B",
         "count": 3,
-        "pct": 14.3
+        "pct": 12
       },
       {
         "label": "G",
         "count": 2,
-        "pct": 9.5
-      },
-      {
-        "label": "Unknown",
-        "count": 1,
-        "pct": 4.8
+        "pct": 8
       },
       {
         "label": "F",
         "count": 1,
-        "pct": 4.8
+        "pct": 4
       }
     ],
     "unit": "charges",
     "note": "County-published Level code, per charge."
   },
   "agencies": {
-    "n": 11,
+    "n": 13,
     "unit": "bookings",
     "rows": [
       {
         "label": "WCSO",
-        "count": 10
+        "count": 12
       },
       {
         "label": "COWLITZ COUNTY SHERIFF'S OFFICE",
@@ -222,20 +227,20 @@
     "note": "Arresting agency as published per charge; each booking counted once per agency."
   },
   "bail": {
-    "n": 11,
-    "withBailSet": 4,
-    "noBailAmount": 7,
-    "median": 225000,
+    "n": 13,
+    "withBailSet": 5,
+    "noBailAmount": 8,
+    "median": 200000,
     "min": 1000,
     "max": 500000,
     "note": "Bail set by the court, not bail posted. Per booking: the highest amount set on any one charge. $0.00 is ambiguous (no bail, held without bail, or not yet set)."
   },
   "stay": {
-    "n": 5,
-    "releasedTotal": 5,
+    "n": 7,
+    "releasedTotal": 7,
     "approximate": true,
-    "medianDays": 1.5,
-    "meanDays": 3.8,
+    "medianDays": 2.6,
+    "meanDays": 5.3,
     "histogram": [
       {
         "label": "< 1 day",
@@ -255,7 +260,7 @@
       },
       {
         "label": "7–30 days",
-        "count": 1
+        "count": 3
       },
       {
         "label": "30+ days",
@@ -277,12 +282,12 @@
       },
       {
         "month": "2026-11",
-        "count": 3
+        "count": 5
       }
     ]
   },
   "repeatBookings": {
-    "people": 11,
+    "people": 13,
     "withMoreThanOneBooking": 0,
     "note": "Matched on the county Inmate ID. Only bookings seen since tracking began."
   }
