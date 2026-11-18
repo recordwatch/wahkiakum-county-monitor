@@ -1,5 +1,107 @@
 [
   {
+    "bookingNumber": "B2600083",
+    "inmateId": "A03999",
+    "firstSeen": "2026-11-17T17:07:13-08:00",
+    "seenOnFirstRun": false,
+    "status": "in_custody",
+    "releasedAt": null,
+    "releaseSource": null,
+    "lastSeenInCustodyAt": "2026-11-17T17:07:13-08:00",
+    "releaseReversals": [],
+    "charges": [
+      {
+        "violation": "99.995 - PROBATION/SUPERVISION VIOLATION",
+        "cleared": false,
+        "level": "U",
+        "addDesc": null,
+        "obts": null,
+        "warrantNumber": null,
+        "endOfSentence": null,
+        "clearance": null,
+        "arrestAgency": "OTHER - LIST AGENCY IN COMMENTS",
+        "caseNumber": null,
+        "arrestDate": "2026-11-17",
+        "courtType": null,
+        "courtCase": null,
+        "nextCourtDate": null,
+        "bondBailType": null,
+        "bondGroup": "0",
+        "bondAmount": 0,
+        "cashAmount": 0,
+        "bondCo": null
+      }
+    ],
+    "detailStatus": "ok",
+    "name": "BEEBE, JACOB",
+    "firstName": "JACOB",
+    "lastName": "BEEBE",
+    "middleName": "",
+    "race": "W",
+    "sex": "M",
+    "bookingDate": "2026-11-17",
+    "schedRelease": null,
+    "location": null,
+    "countyReleased": null,
+    "age": 27,
+    "hair": "BRO",
+    "eyes": "BRO",
+    "height": "602",
+    "weight": 165,
+    "detailFetchedAt": "2026-11-17T17:07:13-08:00"
+  },
+  {
+    "bookingNumber": "B2600082",
+    "inmateId": "A04008",
+    "firstSeen": "2026-11-17T17:07:13-08:00",
+    "seenOnFirstRun": false,
+    "status": "in_custody",
+    "releasedAt": null,
+    "releaseSource": null,
+    "lastSeenInCustodyAt": "2026-11-17T17:07:13-08:00",
+    "releaseReversals": [],
+    "charges": [
+      {
+        "violation": "16.08.100(1) - DANGEROUS DOGS-NOT REG/MAINT",
+        "cleared": false,
+        "level": "G",
+        "addDesc": null,
+        "obts": null,
+        "warrantNumber": null,
+        "endOfSentence": null,
+        "clearance": null,
+        "arrestAgency": "WCSO",
+        "caseNumber": "260178",
+        "arrestDate": "2026-11-17",
+        "courtType": null,
+        "courtCase": null,
+        "nextCourtDate": null,
+        "bondBailType": null,
+        "bondGroup": "0",
+        "bondAmount": 0,
+        "cashAmount": 0,
+        "bondCo": null
+      }
+    ],
+    "detailStatus": "ok",
+    "name": "KELLEY, TIALEN PATRICK",
+    "firstName": "TIALEN",
+    "lastName": "KELLEY",
+    "middleName": "PATRICK",
+    "race": null,
+    "sex": "M",
+    "bookingDate": "2026-11-17",
+    "schedRelease": null,
+    "location": null,
+    "countyReleased": null,
+    "age": 51,
+    "hair": "BLD",
+    "eyes": "BLU",
+    "height": "508",
+    "weight": 155,
+    "detailFetchedAt": "2026-11-17T17:07:13-08:00"
+  },
+  {
     "bookingNumber": "B2600081",
     "inmateId": "A03419",
     "firstSeen": "2026-11-17T13:37:22-08:00",
@@ -7,7 +109,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-11-17T16:07:20-08:00",
+    "lastSeenInCustodyAt": "2026-11-17T17:07:13-08:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -90,7 +192,7 @@
     "eyes": "BRO",
     "height": "505",
     "weight": 150,
-    "detailFetchedAt": "2026-11-17T16:07:20-08:00"
+    "detailFetchedAt": "2026-11-17T17:07:13-08:00"
   },
   {
     "bookingNumber": "B2600080",
@@ -100,7 +202,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-11-17T16:07:20-08:00",
+    "lastSeenInCustodyAt": "2026-11-17T17:07:13-08:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -141,7 +243,7 @@
     "eyes": "BLU",
     "height": "603",
     "weight": 206,
-    "detailFetchedAt": "2026-11-17T16:07:20-08:00"
+    "detailFetchedAt": "2026-11-17T17:07:13-08:00"
   },
   {
     "bookingNumber": "B2600079",
@@ -550,7 +652,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-11-17T16:07:20-08:00",
+    "lastSeenInCustodyAt": "2026-11-17T17:07:13-08:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -612,7 +714,7 @@
     "eyes": "BRO",
     "height": "505",
     "weight": 125,
-    "detailFetchedAt": "2026-11-17T16:07:20-08:00"
+    "detailFetchedAt": "2026-11-17T17:07:13-08:00"
   },
   {
     "bookingNumber": "B2600066",
@@ -622,7 +724,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-11-17T16:07:20-08:00",
+    "lastSeenInCustodyAt": "2026-11-17T17:07:13-08:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -684,7 +786,7 @@
     "eyes": "BRO",
     "height": "509",
     "weight": 155,
-    "detailFetchedAt": "2026-11-17T16:07:20-08:00"
+    "detailFetchedAt": "2026-11-17T17:07:13-08:00"
   },
   {
     "bookingNumber": "B2600036",
@@ -694,7 +796,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-11-17T16:07:20-08:00",
+    "lastSeenInCustodyAt": "2026-11-17T17:07:13-08:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -861,7 +963,7 @@
     "eyes": "BRO",
     "height": "603",
     "weight": 210,
-    "detailFetchedAt": "2026-11-17T16:07:20-08:00"
+    "detailFetchedAt": "2026-11-17T17:07:13-08:00"
   },
   {
     "bookingNumber": "B2500087",
@@ -871,7 +973,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-11-17T16:07:20-08:00",
+    "lastSeenInCustodyAt": "2026-11-17T17:07:13-08:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -912,6 +1014,6 @@
     "eyes": "HAZ",
     "height": "600",
     "weight": 190,
-    "detailFetchedAt": "2026-11-17T16:07:20-08:00"
+    "detailFetchedAt": "2026-11-17T17:07:13-08:00"
   }
 ]
