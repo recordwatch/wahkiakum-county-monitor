@@ -333,6 +333,51 @@ test('list shows a Release Date while still listed: recorded raw, flagged', asyn
   assert.equal(read('change_log.json')[0].status, 'in_custody');
 });
 
+test('new booking with no usable booking date: skipped, run succeeds, picked up once dated', async () => {
+  mock.state.roster = [A];
+  assert.equal((await fresh()).code, 0);
+  const undated = makeInmate(9, { bookingDate: '01/01/1900' });
+  mock.state.roster = [A, undated];
+  const r = await scrape();
+  assert.equal(r.code, 0, r.out);
+  assert.match(r.out, /SKIPPED: B2600009 has no usable booking date \("01\/01\/1900"\)/);
+  assert.equal(byBn('B2600009'), undefined);
+  assert.equal(byBn(A.bookingNumber).status, 'in_custody');
+  assert.equal(read('status.json').skippedUndated, 1);
+
+  mock.state.roster = [A, makeInmate(9, { bookingDate: '11/11/2026' })];
+  const r2 = await scrape();
+  assert.equal(r2.code, 0, r2.out);
+  assert.equal(byBn('B2600009').bookingDate, '2026-11-11');
+  assert.equal(byBn('B2600009').status, 'in_custody');
+  assert.equal(read('status.json').skippedUndated, 0);
+});
+
+test('tracked booking whose date turns into 01/01/1900: left as is, never released', async () => {
+  mock.state.roster = [A, B];
+  assert.equal((await fresh()).code, 0);
+  const before = byBn(B.bookingNumber);
+  mock.state.roster = [A, { ...B, bookingDate: '01/01/1900' }];
+  mock.hits = [];
+  const r = await scrape();
+  assert.equal(r.code, 0, r.out);
+  const after = byBn(B.bookingNumber);
+  assert.equal(after.status, 'in_custody');
+  assert.equal(after.releasedAt, null);
+  assert.equal(after.missingSince, undefined);
+  assert.equal(after.bookingDate, before.bookingDate);
+});
+
+test('every booking undated: nobody released, nothing new, run succeeds', async () => {
+  mock.state.roster = [A, B];
+  assert.equal((await fresh()).code, 0);
+  mock.state.roster = [{ ...A, bookingDate: '01/01/1900' }, { ...B, bookingDate: '' }];
+  const r = await scrape();
+  assert.equal(r.code, 0, r.out);
+  assert.equal(read('change_log.json').filter(e => e.status === 'in_custody').length, 2);
+  assert.equal(read('status.json').skippedUndated, 2);
+});
+
 test('status.json changes every run (its git history is the run log)', async () => {
   mock.state.roster = [A];
   await fresh();

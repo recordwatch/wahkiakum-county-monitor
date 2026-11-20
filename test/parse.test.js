@@ -46,9 +46,17 @@ test('parseList maps columns by header and validates', () => {
   assert.equal(r.inmates[0].bookingNumber, 'B2600001');
   assert.equal(r.inmates[0].schedRelease, '2026-11-25');
   assert.equal(r.inmates[0].dob, undefined, 'DOB is not stored');
-  assert.deepEqual(parseList(listPage([])), { totalCandidates: 0, inmates: [] });
+  assert.deepEqual(parseList(listPage([])), { totalCandidates: 0, inmates: [], skipped: [] });
   assert.throws(() => parseList(REBUILD_PAGE), /unrecognized page/);
-  assert.throws(() => parseList(listPage([makeInmate(1, { bookingDate: '' })])), /unparseable booking date/);
+  // A booking with no usable date is skipped, not fatal, and still counts
+  // toward Total Candidates.
+  for (const raw of ['', '01/01/1900', 'not a date']) {
+    const r2 = parseList(listPage([makeInmate(1, { bookingDate: raw }), makeInmate(2)]));
+    assert.equal(r2.inmates.length, 1, `bookingDate ${JSON.stringify(raw)}`);
+    assert.equal(r2.skipped.length, 1);
+    assert.equal(r2.skipped[0].bookingDateRaw, raw);
+    assert.equal(r2.totalCandidates, 2);
+  }
   assert.throws(() => parseList(listPage([makeInmate(1), makeInmate(1)])), /duplicate/);
 });
 
