@@ -71,10 +71,17 @@ export async function run() {
   const warn = msg => { warnings.push(msg); console.warn(`  WARN: ${msg}`); };
 
   // Fatal if the list can't be read or doesn't validate. Nothing is written.
-  const { totalCandidates, inmates } = await fetchRoster();
+  const { totalCandidates, inmates, skipped } = await fetchRoster();
   console.log(`  county says Total Candidates: ${totalCandidates}; parsed ${inmates.length}`);
+  // Logged, not warned: a warning exits 2, which the workflow counts as a
+  // failed scrape, and a county data-entry gap isn't a broken scraper.
+  for (const s of skipped) {
+    console.log(`  SKIPPED: ${s.bookingNumber} has no usable booking date (${JSON.stringify(s.bookingDateRaw)}); will be picked up once the county fills it in`);
+  }
 
-  const listed = new Set(inmates.map(i => i.bookingNumber));
+  // A skipped booking is still on the county's list, so it counts as listed:
+  // one we already track is left exactly as it was, never released.
+  const listed = new Set([...inmates, ...skipped].map(i => i.bookingNumber));
   const prevInCustody = log.filter(e => e.status === 'in_custody');
   let booked = 0, reappeared = 0, released = 0;
 
@@ -212,7 +219,7 @@ export async function run() {
   fs.mkdirSync(DATA_DIR, { recursive: true });
   writeJSON(LOG_FILE, log);
   writeJSON(STATE_FILE, state);
-  writeJSON(STATUS_FILE, { inCustody, countyTotal: totalCandidates, lastUpdated: now, warnings: warnings.length });
+  writeJSON(STATUS_FILE, { inCustody, countyTotal: totalCandidates, lastUpdated: now, warnings: warnings.length, skippedUndated: skipped.length });
   writeJSON(STATS_FILE, buildStats(log, now));
 
   console.log(`[${nowISO()}] Done. ${booked} new, ${released} released, ${reappeared} reappeared, ${inCustody} in custody, ${warnings.length} warnings.`);

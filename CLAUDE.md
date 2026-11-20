@@ -74,6 +74,15 @@ by the gap and can miss short stays entirely.
   booking number under a known Inmate ID is a new record.
 - **Times:** booking date is date-only (no time). Stays are counted from
   midnight Pacific on the booking day. `01/01/1900` = blank.
+- **A listed booking with no usable booking date is skipped, not fatal**
+  (added 2026-11-20, user's choice). B2600080 was posted with `01/01/1900` on
+  11/11 and, while that failed every run, blocked all of Wahkiakum until the
+  county fixed it on 11/17. Now `parseList()` returns it in `skipped`, the run
+  logs `SKIPPED: <booking #> ...` (a log line, not a warning, since a warning
+  exits 2 and the workflow counts that as a failed scrape), `status.json`
+  counts it as `skippedUndated`, and the booking is recorded on the first run
+  after the county fills in the date. A skipped booking still counts as
+  listed, so one already tracked is left as is, never released.
 - **Bail:** "Req. Bond Amt" / "Req. Cash Amt" per charge = bail *set*, not posted.
 - **Roster size:** about 4 people. Real, per the user. 0 is possible on a quiet night.
 - **Not stored:** DOB (identifying; age from the detail page is kept instead).

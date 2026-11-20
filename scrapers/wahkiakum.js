@@ -104,6 +104,11 @@ export function parseList(html) {
   const totalCandidates = parseInt(m[1], 10);
 
   const inmates = [];
+  // Bookings listed without a usable booking date (the county has posted
+  // "01/01/1900", its "no date" placeholder, on a new booking). They're
+  // skipped until the county fills the date in, instead of failing the run;
+  // see scrape.js, which also never releases a skipped booking.
+  const skipped = [];
   const seen = new Set();
   table.find('tbody tr').each((_, tr) => {
     const cells = $(tr).find('td').map((_, td) => clean($(td).text())).get();
@@ -117,7 +122,10 @@ export function parseList(html) {
     seen.add(row.bookingNumber);
 
     const bookingDate = countyDateToISO(row.bookingDateRaw);
-    if (!bookingDate) throw new SourceError(`list page: booking ${row.bookingNumber} has unparseable booking date ${JSON.stringify(row.bookingDateRaw)}`);
+    if (!bookingDate) {
+      skipped.push({ bookingNumber: row.bookingNumber, bookingDateRaw: row.bookingDateRaw });
+      return;
+    }
     const schedRelease = countyDateToISO(row.schedReleaseRaw);
     const listReleaseDate = countyDateToISO(row.listReleaseDateRaw);
 
@@ -141,10 +149,10 @@ export function parseList(html) {
   // The page has paging links, but page=2 returned the same rows in testing and
   // the roster has never been big enough to page. Rather than guess at paging,
   // fail loudly if the count doesn't match what we parsed.
-  if (inmates.length !== totalCandidates) {
-    throw new SourceError(`list page: parsed ${inmates.length} rows but county says Total Candidates: ${totalCandidates} (paging?)`);
+  if (inmates.length + skipped.length !== totalCandidates) {
+    throw new SourceError(`list page: parsed ${inmates.length + skipped.length} rows but county says Total Candidates: ${totalCandidates} (paging?)`);
   }
-  return { totalCandidates, inmates };
+  return { totalCandidates, inmates, skipped };
 }
 
 export async function fetchRoster() {
