@@ -58,7 +58,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-11-26T08:07:12-08:00",
+    "lastSeenInCustodyAt": "2026-11-26T08:37:13-08:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -99,7 +99,7 @@
     "eyes": "BLU",
     "height": "600",
     "weight": 185,
-    "detailFetchedAt": "2026-11-26T08:07:12-08:00"
+    "detailFetchedAt": "2026-11-26T08:37:13-08:00"
   },
   {
     "bookingNumber": "B2600084",
@@ -356,7 +356,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-11-26T08:07:12-08:00",
+    "lastSeenInCustodyAt": "2026-11-26T08:37:13-08:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -397,7 +397,7 @@
     "eyes": "BLU",
     "height": "603",
     "weight": 206,
-    "detailFetchedAt": "2026-11-26T08:07:12-08:00"
+    "detailFetchedAt": "2026-11-26T08:37:13-08:00"
   },
   {
     "bookingNumber": "B2600079",
@@ -806,7 +806,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-11-26T08:07:12-08:00",
+    "lastSeenInCustodyAt": "2026-11-26T08:37:13-08:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -868,7 +868,7 @@
     "eyes": "BRO",
     "height": "505",
     "weight": 125,
-    "detailFetchedAt": "2026-11-26T08:07:12-08:00"
+    "detailFetchedAt": "2026-11-26T08:37:13-08:00"
   },
   {
     "bookingNumber": "B2600066",
@@ -950,7 +950,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-11-26T08:07:12-08:00",
+    "lastSeenInCustodyAt": "2026-11-26T08:37:13-08:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -1117,7 +1117,7 @@
     "eyes": "BRO",
     "height": "603",
     "weight": 210,
-    "detailFetchedAt": "2026-11-26T08:07:12-08:00"
+    "detailFetchedAt": "2026-11-26T08:37:13-08:00"
   },
   {
     "bookingNumber": "B2500087",
@@ -1127,7 +1127,7 @@
     "status": "in_custody",
     "releasedAt": null,
     "releaseSource": null,
-    "lastSeenInCustodyAt": "2026-11-26T08:07:12-08:00",
+    "lastSeenInCustodyAt": "2026-11-26T08:37:13-08:00",
     "releaseReversals": [],
     "charges": [
       {
@@ -1168,6 +1168,6 @@
     "eyes": "HAZ",
     "height": "600",
     "weight": 190,
-    "detailFetchedAt": "2026-11-26T08:07:12-08:00"
+    "detailFetchedAt": "2026-11-26T08:37:13-08:00"
   }
 ]
